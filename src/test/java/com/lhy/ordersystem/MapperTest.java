@@ -1,6 +1,5 @@
 package com.lhy.ordersystem;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.lhy.ordersystem.entity.User;
 import com.lhy.ordersystem.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
@@ -22,6 +21,6 @@ public class MapperTest {
     @Test
     public void userMapperTest() {
         List<User> list = userMapper.selectList(null);
-        System.out.println(list);
+        System.out.println(userMapper.getUserById(2).toString());
     }
 }
