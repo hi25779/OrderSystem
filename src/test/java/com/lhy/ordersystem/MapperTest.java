@@ -21,6 +21,8 @@ public class MapperTest {
     @Test
     public void userMapperTest() {
         List<User> list = userMapper.selectList(null);
-        System.out.println(userMapper.getUserById(2).toString());
+        //System.out.println(userMapper.getUserById(2).toString());
+        User user = userMapper.getUserByUserName("lhy");
+        System.out.println(user.getUserName());
     }
 }

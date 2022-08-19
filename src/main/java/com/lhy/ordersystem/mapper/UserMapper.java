@@ -19,4 +19,10 @@ public interface UserMapper extends BaseMapper<User> {
         queryWrapper.eq(User::getId, userId);
         return selectOne(queryWrapper);
     }
+
+    default User getUserByUserName(String userName) {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getUserName, userName);
+        return selectOne(queryWrapper);
+    }
 }
