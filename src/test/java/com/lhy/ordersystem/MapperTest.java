@@ -1,12 +1,10 @@
 package com.lhy.ordersystem;
 
-import com.lhy.ordersystem.entity.User;
 import com.lhy.ordersystem.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author : Jesse(lhy)
@@ -18,11 +16,11 @@ public class MapperTest {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Test
     public void userMapperTest() {
-        List<User> list = userMapper.selectList(null);
-        //System.out.println(userMapper.getUserById(2).toString());
-        User user = userMapper.getUserByUserName("lhy");
-        System.out.println(user.getUserName());
+        System.out.println(passwordEncoder.encode("123456"));
     }
 }
