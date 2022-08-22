@@ -1,16 +1,21 @@
 package com.lhy.ordersystem.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.lhy.ordersystem.domain.Message;
+import com.lhy.ordersystem.entity.User;
+import com.lhy.ordersystem.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
-    @GetMapping("/login")
-    public String login() {
-        return "success";
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/login")
+    public Message login(@RequestBody User user) {
+        return new Message(200, "login succesfuly", userService.login(user));
     }
 
 }

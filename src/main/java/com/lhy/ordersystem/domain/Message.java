@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * @Author 三更  B站： https://space.bilibili.com/663528522
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseResult<T> {
+public class Message<T> {
     /**
      * 状态码
      */
@@ -20,12 +20,12 @@ public class ResponseResult<T> {
      */
     private T data;
 
-    public ResponseResult(Integer code, String msg) {
+    public Message(Integer code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public ResponseResult(Integer code, T data) {
+    public Message(Integer code, T data) {
         this.code = code;
         this.data = data;
     }
@@ -54,7 +54,7 @@ public class ResponseResult<T> {
         this.data = data;
     }
 
-    public ResponseResult(Integer code, String msg, T data) {
+    public Message(Integer code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
