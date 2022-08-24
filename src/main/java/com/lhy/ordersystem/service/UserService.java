@@ -15,4 +15,6 @@ public interface UserService {
 
     Map<String, String> login(User user);
 
+    Map<String, String> logout();
+
 }

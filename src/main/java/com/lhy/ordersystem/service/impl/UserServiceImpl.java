@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -24,6 +25,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Override
     public Map<String, String> login(User user) {
         UsernamePasswordAuthenticationToken passwordAuthenticationToken =
                 new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
@@ -36,5 +38,13 @@ public class UserServiceImpl implements UserService {
         Map<String, String> map = new HashMap<>();
         map.put("token", jwt);
         return map;
+    }
+
+    @Override
+    public Map<String, String> logout() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        LoginUser loginUser = (LoginUser) authentication.getPrincipal();
+
+        return null;
     }
 }
