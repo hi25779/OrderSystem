@@ -44,7 +44,6 @@ public class UserServiceImpl implements UserService {
     public Map<String, String> logout() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-
         return null;
     }
 }
