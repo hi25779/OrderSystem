@@ -1,6 +1,7 @@
 package com.lhy.ordersystem.service.impl;
 
 import com.lhy.ordersystem.domain.LoginUser;
+import com.lhy.ordersystem.domain.Message;
 import com.lhy.ordersystem.entity.User;
 import com.lhy.ordersystem.service.UserService;
 import com.lhy.ordersystem.util.JwtUtil;
@@ -41,9 +42,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, String> logout() {
+    public Message logout() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-        return null;
+        return new Message(200, "logout successfully");
     }
 }
